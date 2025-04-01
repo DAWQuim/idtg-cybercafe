@@ -24,7 +24,7 @@
 
     <!-- Iconos y selección de idioma -->
     <div class="flex items-center space-x-3">
-        <img src="{{ asset('images/es_flag.png') }}" alt="ES" class="w-6 h-4">
+        <img src="{{ asset('images/Flag.png') }}" alt="ES" class="w-6 h-4">
         <a href="{{ route('login') }}">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A9 9 0 0112 3a9 9 0 016.879 14.804M15 21v-2a3 3 0 00-6 0v2m9 0a9 9 0 00-18 0"></path>
