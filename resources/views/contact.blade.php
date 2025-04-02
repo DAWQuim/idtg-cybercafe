@@ -8,32 +8,19 @@
 </head>
 <body class="bg-gray-900 flex flex-col items-center h-screen">
 <nav class="w-full bg-green-500 p-4 flex justify-between items-center">
-    <!-- Logo a la izquierda -->
     <div class="flex items-center">
         <a href="{{ route('home') }}">
             <x-application-logo class="h-14 mr-3" />
         </a>
     </div>
-
-    <!-- Enlaces centrados -->
     <div class="absolute left-1/2 transform -translate-x-1/2 space-x-4">
         <a href="{{ route('home') }}" class="text-white hover:underline">Inicio</a>
         <a href="{{ route('areas') }}" class="text-white hover:underline">Áreas y Precios</a>
         <a href="{{ route('contact') }}" class="text-white hover:underline">Contacto</a>
     </div>
-
-    <!-- Iconos y selección de idioma -->
-    <div class="flex items-center space-x-3">
-        <img src="{{ asset('images/Flag.png') }}" alt="ES" class="w-6 h-4">
-        <a href="{{ route('login') }}">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A9 9 0 0112 3a9 9 0 016.879 14.804M15 21v-2a3 3 0 00-6 0v2m9 0a9 9 0 00-18 0"></path>
-            </svg>
-        </a>
-    </div>
 </nav>
 
-<!-- Sección de contacto -->
+<!-- Sección de Contacto -->
 <div class="bg-black bg-opacity-70 p-8 rounded-lg text-white w-96 mt-10">
     <h2 class="text-2xl font-bold text-center mb-4">Contacto</h2>
     <form method="POST" action="{{ route('contact.send') }}" class="space-y-3">
@@ -49,11 +36,11 @@
     </form>
 </div>
 
-<!-- Información de contacto -->
+<!-- Información de contacto y redes sociales -->
 <div class="flex justify-around w-full text-white mt-10">
     <div class="text-center">
         <h3 class="text-lg font-bold">Ubicación</h3>
-        <p>1016</p>
+        <p>101G</p>
         <p>Calle de ejemplo 2</p>
         <p>0888, CiudadEjemplo, España</p>
     </div>
@@ -64,19 +51,22 @@
     <div class="text-center">
         <h3 class="text-lg font-bold">Horario</h3>
         <p>De lunes a domingo</p>
-        <p>Abiertos 24h</p>
+        <p>Abiertos 24 horas</p>
     </div>
 </div>
 
-<!-- Redes sociales -->
-<div class="flex justify-center space-x-6 mt-6">
-    <a href="#" class="text-white text-2xl"><i class="fab fa-instagram"></i></a>
-    <a href="#" class="text-white text-2xl"><i class="fab fa-twitter"></i></a>
-    <a href="#" class="text-white text-2xl"><i class="fab fa-facebook"></i></a>
+<!-- Iconos de redes sociales -->
+<div class="flex space-x-4 mt-6">
+    <a href="https://twitter.com" target="_blank">
+        <img src="{{ asset('images/X.png') }}" alt="Twitter" class="w-8 h-8">
+    </a>
+    <a href="https://facebook.com" target="_blank">
+        <img src="{{ asset('images/Facebook.png') }}" alt="Facebook" class="w-8 h-8">
+    </a>
+    <a href="https://instagram.com" target="_blank">
+        <img src="{{ asset('images/instagram.png') }}" alt="Instagram" class="w-8 h-8">
+    </a>
 </div>
-
-<!-- Agregar FontAwesome para iconos -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </body>
 </html>

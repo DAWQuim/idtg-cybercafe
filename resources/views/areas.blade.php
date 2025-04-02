@@ -52,7 +52,7 @@
     </section>
 
     <footer class="bg-gray-800 text-center p-4 mt-10">
-        <p>&copy; Todos los derechos reservados 2024</p>
+        <p>&copy; Todos los derechos reservados 2025</p>
     </footer>
 </body>
 </html>
