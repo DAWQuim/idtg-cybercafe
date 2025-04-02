@@ -34,14 +34,14 @@
             <option value="en" class="flex items-center space-x-2">
                 <span class="flag-icon flag-icon-us"></span> English
             </option>
-            <!-- Puedes añadir más idiomas aquí -->
         </select>
     </div>
 </nav>
 
+<!-- Formulario de Login -->
 <div class="bg-black bg-opacity-70 p-8 rounded-lg text-white w-96 mt-10">
     <h2 class="text-2xl font-bold text-center mb-4">Iniciar Sesión</h2>
-    <form method="POST" action="{{ route('login') }}" class="space-y-3" id="loginForm">
+    <form method="POST" action="#" class="space-y-3" id="loginForm">
         @csrf
         <input type="text" class="w-full p-2 rounded bg-gray-800 text-white" name="username" placeholder="Usuario" required>
         <input type="password" class="w-full p-2 rounded bg-gray-800 text-white" name="password" placeholder="Contraseña" required>
@@ -58,18 +58,17 @@
 </div>
 
 <script>
-    document.getElementById("loginForm").addEventListener("submit", function() {
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Evita el envío real del formulario
         setTimeout(() => {
-            window.location.href = "{{ route('dashboard') }}";
+            window.location.href = "{{ route('home') }}";
         }, 1000);
     });
 
-    // Script para cambiar el idioma (puedes agregar tu lógica de traducción aquí)
+    // Script para cambiar el idioma
     document.getElementById('language').addEventListener('change', function(e) {
         const language = e.target.value;
-        // Aquí puedes implementar la lógica para cambiar el idioma
         console.log(`Idioma seleccionado: ${language}`);
-        // Podrías hacer un redireccionamiento o almacenar el idioma en una variable de sesión
     });
 </script>
 </body>
