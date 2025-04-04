@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('trabajador', function (Blueprint $table) {
-            $table->id(); // ID autoincremental
-            $table->string('name'); // Nombre del cliente
-            $table->string('surname'); // Apellidos del cliente
-            $table->string('email')->unique(); // Correo electrónico único
-            $table->string('DNI'); // DNI del cliente
-            $table->string('telefono'); // Teléfono del cliente
+        Schema::create("trabajador", function (Blueprint $table) {
+            $table->id("id_trabajador"); // ID autoincremental
+            $table->string("nombre"); // Nombre del cliente
+            $table->string("apellido"); // Apellidos del cliente
+            $table->string("email")->unique(); // Correo electrónico único
+            $table->string("dni"); // DNI del cliente
+            $table->string("telefono"); // Teléfono del cliente
         });
     }
 
