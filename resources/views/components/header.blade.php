@@ -1,4 +1,4 @@
-<header class="w-full h-[8rem] flex py-[1rem] px-[8rem] flex flex-row justify-center items-center bg-primary">
+<header class="w-full max-h-[8rem] flex py-[1rem] px-[8rem] flex-row justify-center items-center bg-primary">
     <!-- Logo-Enlace home -->
     <a href="{{ route('home') }}" class="h-full">
         <x-application-logo class="h-full mr-3" />
