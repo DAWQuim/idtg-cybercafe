@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
+<x-web-layout>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,34 +8,8 @@
     <!-- Librería de banderas -->
     <link href="https://cdn.jsdelivr.net/npm/flag-icon-css/css/flag-icons.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-900 flex flex-col items-center h-screen">
-<nav class="w-full bg-green-500 p-4 flex justify-between items-center">
-    <!-- Logo a la izquierda -->
-    <div class="flex items-center">
-        <a href="{{ route('home') }}">
-            <x-application-logo class="h-14 mr-3" />
-        </a>
-    </div>
+<body>
 
-    <!-- Enlaces centrados -->
-    <div class="absolute left-1/2 transform -translate-x-1/2 space-x-4">
-        <a href="{{ route('home') }}" class="text-white hover:underline">Inicio</a>
-        <a href="{{ route('areas') }}" class="text-white hover:underline">Áreas y Precios</a>
-        <a href="{{ route('contact') }}" class="text-white hover:underline">Contacto</a>
-    </div>
-
-    <!-- Selector de idioma con banderas -->
-    <div class="flex items-center space-x-2">
-        <select name="language" id="language" class="bg-green-500 text-white p-2 rounded">
-            <option value="es" class="flex items-center space-x-2">
-                <span class="flag-icon flag-icon-es"></span> Español
-            </option>
-            <option value="en" class="flex items-center space-x-2">
-                <span class="flag-icon flag-icon-us"></span> English
-            </option>
-        </select>
-    </div>
-</nav>
 
 <!-- Formulario de Login -->
 <div class="bg-black bg-opacity-70 p-8 rounded-lg text-white w-96 mt-10">
@@ -72,4 +45,5 @@
     });
 </script>
 </body>
-</html>
+<x-footer />
+</x-web-layout>
