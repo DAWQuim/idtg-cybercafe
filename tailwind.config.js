@@ -16,6 +16,9 @@ export default {
             },
             colors: {
                 "primary":"#AACBA7"
+            },
+            backgroundImage: {
+                "hero": "url(\"/public/images/hero.png\")"
             }
         },
     },
