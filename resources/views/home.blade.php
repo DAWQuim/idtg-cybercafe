@@ -1,5 +1,5 @@
 <x-web-layout>
-    <div class="hello">
+    <div class="hello bg-hero h-svh">
         Hello, world!
     </div>
 </x-web-layout>
