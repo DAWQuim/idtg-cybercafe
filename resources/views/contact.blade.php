@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
+<x-web-layout>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +6,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 flex flex-col items-center h-screen">
-<nav class="w-full bg-green-500 p-4 flex justify-between items-center">
-    <div class="flex items-center">
-        <a href="{{ route('home') }}">
-            <x-application-logo class="h-14 mr-3" />
-        </a>
-    </div>
-    <div class="absolute left-1/2 transform -translate-x-1/2 space-x-4">
-        <a href="{{ route('home') }}" class="text-white hover:underline">Inicio</a>
-        <a href="{{ route('areas') }}" class="text-white hover:underline">Áreas y Precios</a>
-        <a href="{{ route('contact') }}" class="text-white hover:underline">Contacto</a>
-    </div>
-</nav>
 
 <!-- Sección de Contacto -->
 <div class="bg-black bg-opacity-70 p-8 rounded-lg text-white w-96 mt-10">
@@ -69,4 +56,4 @@
 </div>
 
 </body>
-</html>
+</x-web-layout>
