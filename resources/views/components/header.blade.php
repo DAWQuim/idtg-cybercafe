@@ -1,8 +1,8 @@
-<header class="w-full bg-green-500 p-4 flex justify-between items-center">
-   <a href="{{ route('home') }}">
-       <x-application-logo class="h-14 mr-3" />
-   </a>
-
+<header class="w-full h-[8rem] py-[1rem] px-[8rem] flex flex-row justify-center items-center bg-primary">
+    <!-- Logo-Enlace home -->
+    <a href="{{ route('home') }}" class="h-full">
+        <x-application-logo class="h-full mr-3"/>
+    </a>
 
    <div class="absolute left-1/2 transform -translate-x-1/2 space-x-4">
        <a href="{{ route('home') }}" class="text-white hover:underline">Inicio</a>
