@@ -21,6 +21,16 @@
        <option value="ca">🇨🇮 CA</option> <!-- Bandera de Cataluña -->
    </select>
 </div>
+   <div class="flex items-center space-x-4">
+       <!-- Dropdown de idiomas con borde y nombre abreviado de los idiomas -->
+       <div class="relative transform -translate-x-10">
+   <select class="bg-transparent text-white border-2 border-green-500 rounded-lg p-2 pl-4 pr-8 text-lg">
+       <option value="es">🇪🇸 ES</option>
+       <option value="en">🇬🇧 EN</option>
+       <!-- Bandera de Cataluña -->
+       <option value="ca">🇨🇮 CA</option> <!-- Bandera de Cataluña -->
+   </select>
+</div>
 
 
 
@@ -42,7 +52,30 @@
        <a href="{{ route('areas') }}" class="text-white hover:underline">Áreas y Precios</a>
        <a href="{{ route('contact') }}" class="text-white hover:underline">Contacto</a>
    </div>
+
+
+
+       <!-- Icono de usuario -->
+       <div class="flex items-center space-x-2 transform -translate-x-5">
+           <a href="{{ route('login') }}">
+           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-9">
+               <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clip-rule="evenodd" />
+           </svg>
+           </a>
+       </div>
+<nav class="w-full bg-green-500 p-4 flex justify-between items-center">
+
+
+   <!-- Enlaces centrados -->
+   <div class="absolute left-1/2 transform -translate-x-1/2 space-x-4">
+       <a href="{{ route('home') }}" class="text-white hover:underline">Inicio</a>
+       <a href="{{ route('areas') }}" class="text-white hover:underline">Áreas y Precios</a>
+       <a href="{{ route('contact') }}" class="text-white hover:underline">Contacto</a>
+   </div>
 </header>
+</nav>
+
+
 </nav>
 
 
