@@ -13,7 +13,7 @@
 
 <!-- Formulario de Login -->
 <div class="bg-black bg-opacity-70 p-8 rounded-lg text-white w-96 mt-10">
-    <h2 class="text-2xl font-bold text-center mb-4"">Iniciar Sesión</h2>
+    <h2 class="text-2xl font-bold text-center mb-4">Iniciar Sesión</h2>
     <form method="POST" action="#" class="space-y-3" id="loginForm">
         @csrf
         <input type="text" class="w-full p-2 rounded bg-gray-800 text-white" name="username" placeholder="Usuario" required>
