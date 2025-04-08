@@ -18,9 +18,31 @@
             <form method="POST" action="#" class="space-y-4" id="loginForm">
             @csrf
             
-            <input type="text" class="w-full p-2 rounded bg-gray-800 text-white" name="username" placeholder="Usuario" required>
+            <div>
+                <label class="block mb-1 font-medium">
+                    <div class="flex items-center gap-2">
+                        <!-- Icono nombre -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12 12a5 5 0 100-10 5 5 0 000 10zm-7 9a7 7 0 0114 0H5z" clip-rule="evenodd" />
+                        </svg>
+                        Usuario
+                    </div>
+                </label>
+                <input type="text" class="w-full p-2 rounded bg-gray-800 text-white" name="name" required>
+            </div>
 
-            <input type="password" class="w-full p-2 rounded bg-gray-800 text-white" name="password" placeholder="Contraseña" required>
+            <div>
+                <label class="block mb-1 font-medium">
+                    <div class="flex items-center gap-2">
+                        <!-- Icono nombre -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" d="M12 2a6 6 0 00-6 6v4H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2h-2v-4a6 6 0 00-6-6zm-4 8V8a4 4 0 118 0v2h-8z" clip-rule="evenodd" />
+            </svg>
+                        Contraseña
+                </div>
+                </label>
+                <input type="text" class="w-full p-2 rounded bg-gray-800 text-white" name="name" required>
+            </div>
 
             <div class="flex items-center">
                 <input type="checkbox" id="remember" name="remember" class="mr-2">
