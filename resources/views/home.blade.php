@@ -17,7 +17,7 @@
                 <p class="font-saira text-4xl/[150%] font-normal tracking-widest text-white">“Café, confort y focus para
                     quienes no tocan el césped”</p>
                 <a href="/areas">
-                    <x-web-button class="text-3xl">Reserva ya!</x-web-button>
+                    <x-web-button class="text-2xl">Reserva ya!</x-web-button>
                 </a>
             </div>
         </div>
@@ -30,12 +30,12 @@
     </div>
 
     <!-- Areas -->
-    <div class="flex flex-col items-center py-12 gap-8 bg-[url('{{ asset("images/cafeteria.jpg") }}')]">
+    <div class="flex flex-col items-center py-12 gap-8 bg-[url('/public/images/cafeteria.jpg')] bg-cover">
         <x-web-area-card>
             <x-slot:areaName>Cafeteria</x-slot>
             <x-slot:areaDesc>Un espacio diseñado para recargar energías sin salir del mundo gamer. Disfruta de café, snacks y bebidas en un ambiente moderno con iluminación RGB y pantallas con contenido en vivo. Perfecto para tomar un descanso, socializar o seguir la acción mientras comes.</x-slot>
             <x-slot:areaPicture>
-                <img src="{{ asset("") }}" alt="">
+                <img src="{{ asset("images/cafeteria.jpg") }}" alt="">
             </x-slot>
         </x-web-area-card>
 
@@ -43,7 +43,7 @@
             <x-slot:areaName>Sala Gaming</x-slot>
             <x-slot:areaDesc>El corazón de la experiencia: estaciones de alto rendimiento, periféricos de calidad y conexión ultrarrápida. Compite, juega en equipo o disfruta en solitario con la mejor tecnología y ambiente envolvente.</x-slot>
             <x-slot:areaPicture>
-                <img src="" alt="">
+                <img src="{{ asset("images/cafeteria.jpg") }}" alt="">
             </x-slot>
         </x-web-area-card>
 
@@ -51,7 +51,7 @@
             <x-slot:areaName>Coworking</x-slot>
             <x-slot:areaDesc>Un espacio pensado para la productividad sin perder la esencia gamer. Con mesas cómodas, conexión estable y un ambiente inspirador, aquí puedes trabajar, estudiar o desarrollar proyectos mientras te rodeas de creatividad y tecnología.</x-slot>
             <x-slot:areaPicture>
-                <img src="" alt="">
+                <img src="{{ asset("images/cafeteria.jpg") }}" alt="">
             </x-slot>
         </x-web-area-card>
     </div>
@@ -64,7 +64,7 @@
         <h2 class="w-fit font-khand text-4xl text-black">Contacto</h2>
         <x-web-paragraph class="w-fit !text-black">Tienes dudas o quieres hablar con nosotros? ¡Contactanos!</x-web-paragraph>
         <a href="/contact">
-            <x-web-button>Contacto</x-web-button>
+            <x-web-button class="text-base tracking-widest">Contacto</x-web-button>
         </a>
     </div>
 </x-web-layout>
