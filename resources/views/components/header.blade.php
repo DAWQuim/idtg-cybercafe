@@ -1,28 +1,27 @@
-<header class="bg- w-full h-[8rem] py-[1rem] px-[8rem] flex flex-row justify-center items-center bg-primary">
+<header
+    class="w-full h-[8rem] py-[.75rem] px-[8rem] flex flex-row justify-center items-center bg-primary font-khand font-normal">
     <!-- Logo-Enlace home -->
     <a href="{{ route('home') }}" class="h-full">
-        <x-application-logo class="h-full mr-3" />
+        <x-application-logo />
     </a>
 
     <div class="flex gap-[2rem] mx-auto">
-        <a href="{{ route('home') }}" class="text-black hover:underline">Inicio</a>
-        <a href="{{ route('areas') }}" class="text-black hover:underline">Áreas y Precios</a>
-        <a href="{{ route('contact') }}" class="text-black hover:underline">Contacto</a>
+        <a href="{{ route('home') }}" class="text-2xl text-black hover:underline">Inicio</a>
+        <a href="{{ route('areas') }}" class="text-2xl text-black hover:underline">Áreas y Precios</a>
+        <a href="{{ route('contact') }}" class="text-2xl text-black hover:underline">Contacto</a>
     </div>
 
 
-    <div class="flex items-center space-x-4">
+    <div class="flex items-center">
         <!-- Dropdown de idiomas con borde y nombre abreviado de los idiomas -->
-        <div class="relative transform -translate-x-10">
-            <select class="bg-transparent text-black border-2 border-[#AACBA7] rounded-lg p-2 pl-4 pr-8 text-lg">
-                <option value="es">🇪🇸 ES</option>
-                <option value="en">🇬🇧 EN</option>
-                <option value="ca">🇨🇮 CA</option>
-            </select>
-        </div>
+        <select class="bg-transparent text-black border-none text-2xl">
+            <option value="es">🇪🇸 ES</option>
+            <option value="en">🇬🇧 EN</option>
+            <option value="ca">🇨🇮 CA</option>
+        </select>
 
         <!-- Icono de usuario -->
-        <div class="flex items-center space-x-2 transform -translate-x-5">
+        <div class="flex items-center">
             <a href="{{ route('login') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-9">
                     <path fill-rule="evenodd"
