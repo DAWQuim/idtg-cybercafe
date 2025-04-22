@@ -5,31 +5,29 @@
     <title>Áreas y Precios</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 text-white">
-    
-    <section class="container mx-auto mt-10">
-        <div class="bg-gray-800 p-6 rounded-lg mb-6">
-            <h2 class="text-2xl font-bold">Cafetería</h2>
-            <p class="mt-2">Un espacio diseñado para recargar energías...</p>
-            <img src="{{ asset('images/cafeteria.png') }}" alt="Cafetería" class="w-full mt-4 rounded-lg">
-            <button class="bg-green-500 px-4 py-2 mt-4 rounded">Saber más</button>
-        </div>
-        
-        <div class="bg-gray-800 p-6 rounded-lg mb-6">
-            <h2 class="text-2xl font-bold">Sala Gaming</h2>
-            <p class="mt-2">Experiencia inmersiva con PCs de última generación...</p>
-            <img src="{{ asset('images/gaming_room.png') }}" alt="Sala Gaming" class="w-full mt-4 rounded-lg">
-            <p class="mt-2"><strong>Disponibilidad horaria:</strong> Lunes a domingo, 24 horas.</p>
-            <button class="bg-green-500 px-4 py-2 mt-4 rounded">Reservar</button>
-        </div>
-        
-        <div class="bg-gray-800 p-6 rounded-lg">
-            <h2 class="text-2xl font-bold">Sala Coworking</h2>
-            <p class="mt-2">Espacio diseñado para trabajar cómodamente...</p>
-            <img src="{{ asset('images/coworking.png') }}" alt="Sala Coworking" class="w-full mt-4 rounded-lg">
-            <p class="mt-2"><strong>Disponibilidad horaria:</strong> Lunes a domingo, 24 horas.</p>
-            <button class="bg-green-500 px-4 py-2 mt-4 rounded">Reservar</button>
-        </div>
-    </section>
-</body>
+<div class="flex flex-col items-center py-12 gap-8 bg-[url('/public/images/cafeteria.jpg')] bg-cover">
+        <x-web-area-card>
+            <x-slot:areaName>Cafeteria</x-slot>
+            <x-slot:areaDesc>Un espacio diseñado para recargar energías sin salir del mundo gamer. Disfruta de café, snacks y bebidas en un ambiente moderno con iluminación RGB y pantallas con contenido en vivo. Perfecto para tomar un descanso, socializar o seguir la acción mientras comes.</x-slot>
+            <x-slot:areaPicture>
+                <img src="{{ asset("images/cafeteria.jpg") }}" alt="">
+            </x-slot>
+        </x-web-area-card>
+
+        <x-web-area-card>
+            <x-slot:areaName>Sala Gaming</x-slot>
+            <x-slot:areaDesc>El corazón de la experiencia: estaciones de alto rendimiento, periféricos de calidad y conexión ultrarrápida. Compite, juega en equipo o disfruta en solitario con la mejor tecnología y ambiente envolvente.</x-slot>
+            <x-slot:areaPicture>
+                <img src="{{ asset("images/cafeteria.jpg") }}" alt="">
+            </x-slot>
+        </x-web-area-card>
+
+        <x-web-area-card>
+            <x-slot:areaName>Coworking</x-slot>
+            <x-slot:areaDesc>Un espacio pensado para la productividad sin perder la esencia gamer. Con mesas cómodas, conexión estable y un ambiente inspirador, aquí puedes trabajar, estudiar o desarrollar proyectos mientras te rodeas de creatividad y tecnología.</x-slot>
+            <x-slot:areaPicture>
+                <img src="{{ asset("images/cafeteria.jpg") }}" alt="">
+            </x-slot>
+        </x-web-area-card>
+    </div>
 </x-web-layout>
