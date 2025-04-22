@@ -1,10 +1,5 @@
 <x-web-layout>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Áreas y Precios</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+
 <div class="flex flex-col items-center py-12 gap-8 bg-[url('/public/images/cafeteria.jpg')] bg-cover">
         <x-web-area-card>
             <x-slot:areaName>Cafeteria</x-slot>

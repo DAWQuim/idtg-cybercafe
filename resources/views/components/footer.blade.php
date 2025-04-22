@@ -23,10 +23,10 @@
         <div class="container mx-auto flex flex-col items-center">
             <!-- Enlaces legales centrados -->
             <div class="flex space-x-6 mb-3">
-                <a  class="hover:underline">Aviso Legal</a>
-                <a  class="hover:underline">Política de Privacidad</a>
-                <a  class="hover:underline">Política de Cookies</a>
-                <a  class="hover:underline">Términos y Condiciones</a>
+                <a href="{{ route('legal.notice') }}" class="hover:underline">Aviso Legal</a>
+                <a href="{{ route('legal.privacy') }}" class="hover:underline">Política de Privacidad</a>
+                <a href="{{ route('legal.cookies') }}" class="hover:underline">Política de Cookies</a>
+                <a href="{{ route('legal.terms') }}" class="hover:underline">Términos y Condiciones</a>
             </div>
 
             <!-- Redes sociales alineadas al centro debajo de los links -->

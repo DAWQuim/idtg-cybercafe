@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 // Ruta para la vista del formulario de contacto
 Route::get('/contact', function () {
     return view('contact');
@@ -43,5 +44,12 @@ Route::get('/contact', function () {
 
 // Ruta para manejar el envío del formulario
 Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
+
+
+// 🛡️ Rutas legales
+Route::view('/aviso-legal', 'legal.legal')->name('legal.notice');
+Route::view('/politica-privacidad', 'legal.privacy')->name('legal.privacy');
+Route::view('/politica-cookies', 'legal.cookies')->name('legal.cookies');
+Route::view('/terminos-condiciones', 'legal.terms')->name('legal.terms');
 
 require __DIR__.'/auth.php';

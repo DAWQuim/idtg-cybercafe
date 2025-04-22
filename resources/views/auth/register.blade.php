@@ -1,13 +1,4 @@
 <x-web-layout>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Librería de banderas -->
-    <link href="https://cdn.jsdelivr.net/npm/flag-icon-css/css/flag-icons.min.css" rel="stylesheet">
-</head>
 <body>
 
 <div class="bg-[#2B2B2B] bg-opacity-100 min-h-screen flex justify-center items-center py-10 px-4">
