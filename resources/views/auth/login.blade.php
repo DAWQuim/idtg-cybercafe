@@ -36,12 +36,13 @@
                     <div class="flex items-center gap-2">
                         <!-- Icono nombre -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" fill="currentColor">
-                <path fill-rule="evenodd" d="M12 2a6 6 0 00-6 6v4H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2h-2v-4a6 6 0 00-6-6zm-4 8V8a4 4 0 118 0v2h-8z" clip-rule="evenodd" />
-            </svg>
+                            <path fill-rule="evenodd" d="M12 2a6 6 0 00-6 6v4H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2h-2v-4a6 6 0 00-6-6zm-4 8V8a4 4 0 118 0v2h-8z" clip-rule="evenodd" />
+                        </svg>
                         Contraseña
-                </div>
+                    </div>
                 </label>
-                <input type="text" class="w-full p-2 rounded bg-gray-800 text-white" name="name" required>
+                <input type="password" id="password" name="password" placeholder="Contraseña" required
+                           class="w-full p-3 rounded-lg bg-gray-800 text-white">
             </div>
 
             <div class="flex items-center">
