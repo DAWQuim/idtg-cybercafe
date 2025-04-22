@@ -12,14 +12,16 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                khand: ["Khand"],
+                zen_dots: ["Zen Dots"],
+                saira: ["Saira"],
+                inter: ["Inter"],
             },
             colors: {
-                "primary":"#AACBA7"
+                "primary": "#AACBA7",
+                "hero": "#4B3717",
             },
-            backgroundImage: {
-                "hero": "url(\"/public/images/hero.png\")"
-            }
         },
     },
 

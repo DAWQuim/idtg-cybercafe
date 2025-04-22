@@ -32,5 +32,4 @@
         </div>
     </section>
 </body>
-<x-footer />
 </x-web-layout>

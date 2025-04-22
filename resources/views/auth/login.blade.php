@@ -79,5 +79,4 @@
     });
 </script>
 </body>
-<x-footer />
 </x-web-layout>

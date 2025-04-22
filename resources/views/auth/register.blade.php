@@ -133,6 +133,5 @@
         });
     </script>
     </body>
-    <x-footer />
 </body>
 </x-web-layout>
