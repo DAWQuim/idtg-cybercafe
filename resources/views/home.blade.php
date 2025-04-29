@@ -1,4 +1,5 @@
 <x-web-layout>
+<div class="scroll-smooth">
     <!-- Hero section -->
     <div class="relative h-[calc(100svh-8rem)] bg-hero">
         <!-- Imagen de fondo. Es un elemento separado para poderla hacer transparente -->
@@ -16,9 +17,11 @@
                 <hr class="w-3/5">
                 <p class="font-saira text-4xl/[150%] font-normal tracking-widest text-white">“Café, confort y focus para
                     quienes no tocan el césped”</p>
-                <a href="/areas">
-                    <x-web-button class="text-2xl">Reserva ya!</x-web-button>
+
+                <a href="#areas">
+                    <x-web-button class="text-2xl">Reserva ya!</x-web-button>    
                 </a>
+
             </div>
         </div>
     </div>
@@ -30,7 +33,7 @@
     </div>
 
     <!-- Areas -->
-    <div class="flex flex-col items-center py-12 gap-8 bg-[url('/public/images/cafeteria.jpg')] bg-cover">
+    <div id="areas" class="flex flex-col items-center py-12 gap-8 bg-[url('/public/images/cafeteria.jpg')] bg-cover">
         <x-web-area-card>
             <x-slot:areaName>Cafeteria</x-slot>
             <x-slot:areaDesc>Un espacio diseñado para recargar energías sin salir del mundo gamer. Disfruta de café, snacks y bebidas en un ambiente moderno con iluminación RGB y pantallas con contenido en vivo. Perfecto para tomar un descanso, socializar o seguir la acción mientras comes.</x-slot>
