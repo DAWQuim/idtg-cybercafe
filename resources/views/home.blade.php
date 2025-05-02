@@ -18,7 +18,7 @@
                 <p class="font-saira text-4xl/[150%] font-normal tracking-widest text-white">“Café, confort y focus para
                     quienes no tocan el césped”</p>
 
-                <a href="#areas">
+                <a href="#areas" draggable="false">
                     <x-web-button class="text-2xl">Reserva ya!</x-web-button>    
                 </a>
 
@@ -66,7 +66,7 @@
     <div class="bg-primary flex flex-col items-center gap-8 py-12">
         <h2 class="w-fit font-khand text-4xl text-black">Contacto</h2>
         <x-web-paragraph class="w-fit !text-black">Tienes dudas o quieres hablar con nosotros? ¡Contactanos!</x-web-paragraph>
-        <a href="/contact">
+        <a href="/contact" draggable="false">
             <x-web-button class="text-base tracking-widest">Contacto</x-web-button>
         </a>
     </div>
