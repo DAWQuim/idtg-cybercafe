@@ -1,14 +1,14 @@
 <header
     class="w-full h-[8rem] py-[.75rem] px-[8rem] flex flex-row justify-center items-center bg-primary font-khand font-normal">
     <!-- Logo-Enlace home -->
-    <a href="{{ route('home') }}" class="h-full">
+    <a href="{{ route('home') }}" class="h-full aspect-square">
         <x-application-logo />
     </a>
 
     <div class="flex gap-[2rem] mx-auto">
-        <a href="{{ route('home') }}" class="text-2xl text-black hover:underline">Inicio</a>
-        <a href="{{ route('areas') }}" class="text-2xl text-black hover:underline">Áreas y Precios</a>
-        <a href="{{ route('contact') }}" class="text-2xl text-black hover:underline">Contacto</a>
+        <a href="{{ route('home') }}" class="text-[min(1.5rem,3vw)] text-black hover:underline">Inicio</a>
+        <a href="{{ route('areas') }}" class="text-[min(1.5rem,3vw)] text-black hover:underline">Áreas y Precios</a>
+        <a href="{{ route('contact') }}" class="text-[min(1.5rem,3vw)] text-black hover:underline">Contacto</a>
     </div>
 
 
