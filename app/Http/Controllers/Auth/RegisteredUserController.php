@@ -28,24 +28,26 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
+
+        dd($user);
         $request->validate([
-            'username' => 'required|string|max:255|unique:users',
-            'name' => 'required|string|max:255',
-            'surname' => 'required|string|max:255',
-            'dni' => 'required|string|max:10|unique:users',
-            'birthdate' => 'required|date',
-            'postal_code' => 'required|string|max:10',
-            'phone' => 'required|string|max:15',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|confirmed|min:8',
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'dni' => ['required', 'string', 'max:20', 'unique:users'],
+            'birthdate' => ['required', 'date'],
+            'postal_code' => ['required', 'string', 'max:10'],
+            'phone' => ['required', 'string', 'max:20'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
     
         $user = User::create([
             'username' => $request->username,
-            'name' => $request->first_name,
-            'surname' => $request->last_name,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
             'dni' => $request->dni,
             'birthdate' => $request->birthdate,
             'postal_code' => $request->postal_code,
@@ -54,10 +56,12 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+
+    
         event(new Registered($user));
     
         Auth::login($user);
     
         return redirect(RouteServiceProvider::HOME);
-    }
+    }    
 }
