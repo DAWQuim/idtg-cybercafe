@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Log;
 
 class RegisteredUserController extends Controller
 {
@@ -28,11 +29,13 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
-    {
+   
+public function store(Request $request): RedirectResponse
+{
+    try {
+        Log::info('⏳ Validando datos del formulario de registro...');
 
-        dd($user);
-        $request->validate([
+        $validated = $request->validate([
             'username' => ['required', 'string', 'max:255', 'unique:users'],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
@@ -43,25 +46,33 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-    
+
+        Log::info('✅ Validación correcta. Intentando crear usuario...');
+
         $user = User::create([
-            'username' => $request->username,
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'dni' => $request->dni,
-            'birthdate' => $request->birthdate,
-            'postal_code' => $request->postal_code,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'username' => $validated['username'],
+            'first_name' => $validated['first_name'],
+            'last_name' => $validated['last_name'],
+            'dni' => $validated['dni'],
+            'birthdate' => $validated['birthdate'],
+            'postal_code' => $validated['postal_code'],
+            'phone' => $validated['phone'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
         ]);
 
+        Log::info('🎉 Usuario creado correctamente:', ['user_id' => $user->id]);
 
-    
         event(new Registered($user));
-    
         Auth::login($user);
-    
-        return redirect(RouteServiceProvider::HOME);
-    }    
+
+        Log::info('✅ Usuario autenticado. Redirigiendo...');
+
+        return redirect('/');
+        
+    } catch (\Exception $e) {
+        Log::error('❌ Error al registrar usuario:', ['error' => $e->getMessage()]);
+        abort(500, 'Error interno al registrar el usuario. Consulta el log.');
+    }
+}
 }

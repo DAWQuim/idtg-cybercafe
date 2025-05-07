@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Rutas de registro
+Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
+Route::post('register', [RegisteredUserController::class, 'store'])->name('register.store');
+
 // Ruta para la vista del formulario de contacto
 Route::get('/contact', function () {
     return view('contact');
@@ -44,7 +49,6 @@ Route::get('/contact', function () {
 
 // Ruta para manejar el envío del formulario
 Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
-
 
 // 🛡️ Rutas legales
 Route::view('/aviso-legal', 'legal.legal')->name('legal.notice');
