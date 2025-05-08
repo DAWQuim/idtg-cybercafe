@@ -7,7 +7,7 @@
 <div class="bg-[#2B2B2B] bg-opacity-70 min-h-[80vh] flex justify-center items-center py-10">
     <div class="p-8 rounded-lg text-white w-96 border border-white">
         <h2 class="text-2xl font-bold text-center mb-4">Iniciar Sesión</h2>
-            <form method="POST" action="#" class="space-y-4" id="loginForm">
+        <form method="POST" action="{{ route('login') }}" class="space-y-4">
             @csrf
             
             <div>
@@ -20,7 +20,7 @@
                         Usuario
                     </div>
                 </label>
-                <input type="text" class="w-full p-2 rounded bg-gray-800 text-white" name="name" required>
+                <input type="text" class="w-full p-2 rounded bg-gray-800 text-white" name="username" required>
             </div>
 
             <div>
@@ -57,12 +57,7 @@
 
 
 <script>
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // Evita el envío real del formulario
-        setTimeout(() => {
-            window.location.href = "{{ route('home') }}";
-        }, 1000);
-    });
+
 
     // Script para cambiar el idioma
     document.getElementById('language').addEventListener('change', function(e) {
