@@ -6,8 +6,8 @@
             Estaciones de alto rendimiento, periféricos de calidad y conexión ultrarrápida. Compite, juega en equipo o disfruta en solitario con la mejor tecnología y ambiente envolvente.
         </p>
         <p class="text-md text-gray-500">🕒 Horario: 10:00 AM - 12:00 AM</p>
-        <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-xl">
+        <a href="{{ route('reservas.create') }}" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-xl">
             Reservar
-        </button>
+        </a>
     </div>
 </x-web-layout>

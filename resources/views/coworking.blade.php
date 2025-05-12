@@ -6,8 +6,8 @@
             Un espacio pensado para la productividad sin perder la esencia gamer. Trabaja, estudia o desarrolla proyectos mientras te rodeas de creatividad y tecnología.
         </p>
         <p class="text-md text-gray-500">🕒 Horario: 8:00 AM - 8:00 PM</p>
-        <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-xl">
+        <a href="{{ route('reservas.create') }}" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-xl">
             Reservar
-        </button>
+        </a>
     </div>
 </x-web-layout>

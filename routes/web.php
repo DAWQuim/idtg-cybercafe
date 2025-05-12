@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
@@ -59,6 +60,9 @@ Route::view('/terminos-condiciones', 'legal.terms')->name('legal.terms');
 Route::view('/cafeteria', 'cafeteria')->name('cafeteria');
 Route::view('/gaming', 'gaming')->name('gaming');
 Route::view('/coworking', 'coworking')->name('coworking');
+
+Route::get('/reservar', [ReservaController::class, 'create'])->name('reservas.create');
+Route::post('/reservar', [ReservaController::class, 'store'])->name('reservas.store');
 
 
 require __DIR__.'/auth.php';
