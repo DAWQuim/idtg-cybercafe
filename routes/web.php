@@ -56,4 +56,9 @@ Route::view('/politica-privacidad', 'legal.privacy')->name('legal.privacy');
 Route::view('/politica-cookies', 'legal.cookies')->name('legal.cookies');
 Route::view('/terminos-condiciones', 'legal.terms')->name('legal.terms');
 
+Route::view('/cafeteria', 'cafeteria')->name('cafeteria');
+Route::view('/gaming', 'gaming')->name('gaming');
+Route::view('/coworking', 'coworking')->name('coworking');
+
+
 require __DIR__.'/auth.php';
