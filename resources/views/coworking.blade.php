@@ -1,6 +1,6 @@
 <x-web-layout>
     <div class="flex flex-col items-center py-12 px-4 gap-6 bg-white">
-        <img src="{{ asset('images/cafeteria.jpg') }}" alt="Coworking" class="rounded-2xl shadow-xl w-full max-w-3xl object-cover">
+        <img src="{{ asset('images/coworking.jpg') }}" alt="Coworking" class="rounded-2xl shadow-xl w-full max-w-3xl object-cover">
         <h1 class="text-4xl font-bold text-gray-800 mt-6">Coworking</h1>
         <p class="text-lg text-gray-600 text-center max-w-2xl">
             Un espacio pensado para la productividad sin perder la esencia gamer. Trabaja, estudia o desarrolla proyectos mientras te rodeas de creatividad y tecnología.
