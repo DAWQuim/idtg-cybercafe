@@ -1,57 +1,59 @@
-@extends('layouts.app') <!-- Usamos un layout principal (si lo tienes configurado) -->
+<x-web-layout>
+    <div class="min-h-screen bg-[#2B2B2B] py-12 px-6 flex items-center justify-center">
+        <div class="w-full max-w-3xl bg-white rounded-2xl shadow-lg p-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Haz tu Reserva</h2>
 
-@section('content')
-    <div class="container">
-        <h2>Haz tu Reserva</h2>
+            <form action="{{ route('reservas.store') }}" method="POST" class="space-y-6">
+                @csrf
 
-        <form action="{{ route('reservas.store') }}" method="POST">
-            @csrf <!-- Protección CSRF -->
+                <div>
+                    <label for="usuario" class="block text-gray-700 font-semibold mb-1">Usuario</label>
+                    <input type="text" id="usuario" name="usuario" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
 
-            <div class="form-group">
-                <label for="usuario">Usuario</label>
-                <input type="text" id="usuario" name="usuario" class="form-control" required>
-            </div>
+                <div>
+                    <label for="telefono" class="block text-gray-700 font-semibold mb-1">Teléfono</label>
+                    <input type="text" id="telefono" name="telefono" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
 
-            <div class="form-group">
-                <label for="telefono">Teléfono</label>
-                <input type="text" id="telefono" name="telefono" class="form-control" required>
-            </div>
+                <div>
+                    <label for="tipo_servicio" class="block text-gray-700 font-semibold mb-1">Tipo de Servicio</label>
+                    <select id="tipo_servicio" name="tipo_servicio" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        <option value="consultoria">Consultoría</option>
+                        <option value="mantenimiento">Mantenimiento</option>
+                        <option value="desarrollo">Desarrollo</option>
+                        <option value="otros">Otros</option>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="tipo_servicio">Tipo de Servicio</label>
-                <select id="tipo_servicio" name="tipo_servicio" class="form-control" required>
-                    <option value="consultoria">Consultoría</option>
-                    <option value="mantenimiento">Mantenimiento</option>
-                    <option value="desarrollo">Desarrollo</option>
-                    <option value="otros">Otros</option>
-                </select>
-            </div>
+                <div>
+                    <label for="fecha_reserva" class="block text-gray-700 font-semibold mb-1">Fecha de Reserva</label>
+                    <input type="date" id="fecha_reserva" name="fecha_reserva" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
 
-            <div class="form-group">
-                <label for="fecha_reserva">Fecha de Reserva</label>
-                <input type="date" id="fecha_reserva" name="fecha_reserva" class="form-control" required>
-            </div>
+                <div>
+                    <label for="duracion" class="block text-gray-700 font-semibold mb-1">Duración (horas)</label>
+                    <input type="number" id="duracion" name="duracion" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" min="1" required>
+                </div>
 
-            <div class="form-group">
-                <label for="duracion">Duración (horas)</label>
-                <input type="number" id="duracion" name="duracion" class="form-control" min="1" required>
-            </div>
+                <div>
+                    <label for="metodo_pago" class="block text-gray-700 font-semibold mb-1">Método de Pago</label>
+                    <select id="metodo_pago" name="metodo_pago" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="efectivo">Efectivo</option>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="metodo_pago">Método de Pago</label>
-                <select id="metodo_pago" name="metodo_pago" class="form-control" required>
-                    <option value="tarjeta">Tarjeta de Crédito/Débito</option>
-                    <option value="paypal">PayPal</option>
-                    <option value="efectivo">Efectivo</option>
-                </select>
-            </div>
+                <div class="flex items-start">
+                    <input type="checkbox" id="terminos" name="terminos" class="mt-1 mr-2" required>
+                    <label for="terminos" class="text-sm text-gray-600">He leído y acepto los <a href="#" class="text-primary underline">términos y condiciones</a>.</label>
+                </div>
 
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="terminos" name="terminos" required>
-                <label class="form-check-label" for="terminos">He leído y acepto los términos y condiciones</label>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Enviar Reserva</button>
-        </form>
+                <div class="text-center">
+                    <button type="submit" class="bg-primary text-white font-semibold py-2 px-6 rounded-md hover:bg-opacity-90 transition">Enviar Reserva</button>
+                </div>
+            </form>
+        </div>
     </div>
-@endsection
+</x-web-layout>
