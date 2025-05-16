@@ -1,17 +1,20 @@
 <x-web-layout>
-    <div class="max-w-4xl mx-auto bg-transparent text-white p-10 rounded-lg mt-10">
-        <h1 class="text-3xl font-bold mb-6">Aviso Legal</h1>
+    <div class="bg-[#2B2B2B] bg-opacity-70 min-h-[80vh] flex flex-col items-center gap-8 py-16">
+        <!-- Para cambiar el tamaño general del recuadro y el texto, modifica las clases 'w-[80%]' y 'text-4xl' / 'text-2xl' / 'text-lg' / 'p-12' según tus preferencias -->
+        <div class="p-12 rounded-xl text-black w-[80%] max-w-screen-md border border-black bg-white">
+            <h1 class="text-4xl font-bold mb-8">Aviso Legal</h1>
+            <p class="text-lg mb-6">Este sitio web es propiedad de IDTG. Todos los derechos reservados.</p>
+            
+            <h2 class="text-2xl font-semibold mt-8 mb-4">1. Identificación</h2>
+            <ul class="list-disc pl-8 text-lg">
+                <li>Nombre: I don't touch grass</li>
+                <li>Domicilio: Calle Diputación</li>
+                <li>Email: idtg@gmail.com</li>
+            </ul>
 
-        <p class="mb-4">Este sitio web es propiedad de [Nombre de la empresa]. Todos los derechos reservados.</p>
-
-        <h2 class="text-xl font-semibold mt-6 mb-2">1. Identificación</h2>
-        <ul class="list-disc pl-6">
-            <li>Nombre: [Nombre de la empresa]</li>
-            <li>Domicilio: [Dirección]</li>
-            <li>Email: [correo@ejemplo.com]</li>
-        </ul>
-
-        <h2 class="text-xl font-semibold mt-6 mb-2">2. Uso del sitio web</h2>
-        <p>El usuario se compromete a hacer un uso adecuado de los contenidos y servicios del sitio web.</p>
+            <h2 class="text-2xl font-semibold mt-8 mb-4">2. Uso del sitio web</h2>
+            <p class="text-lg">El usuario se compromete a hacer un uso adecuado de los contenidos y servicios del sitio web.</p>
+        </div>
     </div>
 </x-web-layout>
+

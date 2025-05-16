@@ -63,7 +63,7 @@
     </div>
 
     <!-- Separador areas y contacto -->
-    <div class="h-12 bg-[#2B2B2B]"></div>
+    <div class="h-3 bg-[#2B2B2B]"></div>
 
     <!-- Contacto -->
     <div class="bg-primary flex flex-col items-center gap-8 py-12">
