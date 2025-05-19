@@ -3,20 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
 
 class ContactController extends Controller
 {
     public function send(Request $request)
     {
-        // Validar los datos del formulario
+        // Validar datos del formulario
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
-            'message' => 'required|string',
+            'message' => 'required|string'
         ]);
 
-        // Aquí puedes manejar el envío del mensaje, por ejemplo, guardarlo en la base de datos o enviarlo por correo
+        // Guardar datos en la base de datos
+        $contact = Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message
+        ]);
+
+        // Redirigir con mensaje de éxito
         return back()->with('success', '¡Tu mensaje ha sido enviado correctamente!');
     }
 }

@@ -22,6 +22,7 @@
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
+
                 <x-slot name="trigger">
                     <a class="flex items-center focus:outline-none">
                         <img
@@ -31,6 +32,8 @@
                         >
                     </a>
                 </x-slot>
+
+
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.show')">
@@ -76,9 +79,14 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
+            @auth
                 <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
+            @else
+                <div class="font-medium text-base text-gray-800">Invitado</div>
+                <div class="font-medium text-sm text-gray-500">Sin sesión iniciada</div>
+            @endauth
+        </div>
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">

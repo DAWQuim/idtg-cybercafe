@@ -1,0 +1,36 @@
+- Valoracion pertenece a Cliente y a un producto en concreto.
+- Transacción pertenece a Cliente, producto y con un Usuario concreto.
+
+Cliente ↔ User
+Cada cliente es una especialización de un usuario (User).
+➤ Relación: Un cliente pertenece a un usuario.
+
+Trabajador ↔ User
+Cada trabajador también es una especialización de un usuario.
+➤ Relación: Un trabajador pertenece a un usuario.
+
+Producto ↔ Área
+Un producto representa una reserva de un tipo específico de área (Coworking o Gaming).
+➤ Relación: Un producto pertenece a un área.
+
+Cliente ↔ Producto
+Un cliente puede reservar múltiples productos.
+➤ Relación: Un cliente tiene muchos productos.
+➤ Cada producto pertenece a un cliente.
+
+Cliente ↔ Trabajador
+Un cliente puede ser atendido o gestionado por un trabajador.
+➤ Relación: Un cliente puede pertenecer a un trabajador.
+
+Valoración ↔ User
+Cualquier usuario puede dejar valoraciones del servicio.
+➤ Relación: Una valoración pertenece a un usuario.
+
+Producto ↔ Trabajador
+Un trabajador puede estar asignado a productos específicos para gestionar las reservas.
+➤ Relación: Un producto puede pertenecer a un trabajador.
+
+Área ↔ Trabajador
+Una o varias áreas pueden estar supervisadas por uno o más trabajadores.
+➤ Relación: Un área puede tener muchos trabajadores.
+➤ Un trabajador puede pertenecer a un área.
