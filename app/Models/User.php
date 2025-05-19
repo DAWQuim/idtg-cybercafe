@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Authenticatable;
+use Illuminate\Foundation\Auth\User as AuthUser;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Model
+class User extends AuthUser
 {
-    use HasFactory, Notifiable, Authenticatable, HasApiTokens;
+    use HasFactory, Notifiable, HasApiTokens;
 
     // Definir la tabla asociada al modelo
     protected $table = 'users';

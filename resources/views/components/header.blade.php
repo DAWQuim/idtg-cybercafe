@@ -22,11 +22,13 @@
 
     <div class="flex items-center gap-4">
         <!-- Dropdown de idiomas con borde y nombre abreviado de los idiomas -->
+        <!--
         <select class="bg-transparent text-black border-none text-2xl">
             <option value="es">🇪🇸 ES</option>
             <option value="en">🇬🇧 EN</option>
             <option value="ca">🇨🇮 CA</option>
         </select>
+        -->
 
         <!-- Dropdown de usuario -->
         @auth
