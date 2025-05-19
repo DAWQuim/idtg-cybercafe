@@ -1,4 +1,5 @@
-<header class="w-full h-[8rem] py-[.75rem] px-[8rem] flex flex-row justify-center items-center bg-primary font-khand font-normal">
+<header
+    class="w-full h-[8rem] py-[.75rem] px-[8rem] flex flex-row justify-center items-center bg-primary font-khand font-normal">
     <!-- Logo-Enlace home -->
     <a href="{{ route('home') }}" class="h-full aspect-square">
         <x-application-logo />
@@ -6,7 +7,16 @@
 
     <div class="flex gap-[2rem] mx-auto">
         <a href="{{ route('home') }}" class="text-[min(1.5rem,3vw)] text-black hover:underline">Inicio</a>
-        <a href="{{ route('areas') }}" class="text-[min(1.5rem,3vw)] text-black hover:underline">Áreas y Precios</a>
+
+        <div class="relative group text-[min(1.5rem,3vw)] text-black">
+            <div class="cursor-pointer hover:underline">Áreas</div>
+            <div class="absolute left-0 w-max hidden group-hover:flex flex-col gap-[1rem] bg-primary/80 backdrop-blur border-black border-2 shadow-lg p-4 z-10">
+                <a href="/gaming" class="hover:underline">Gaming</a>
+                <a href="/coworking" class="hover:underline">Coworking</a>
+                <a href="/cafeteria" class="hover:underline">Cafetería</a>
+            </div>
+        </div>
+
         <a href="{{ route('contact') }}" class="text-[min(1.5rem,3vw)] text-black hover:underline">Contacto</a>
     </div>
 
@@ -27,11 +37,14 @@
                         <!-- Aquí está el cambio: -->
                         @if (Auth::user()->profile_photo_url)
                             <img class="h-10 w-10 rounded-full object-cover border-2 border-gray-300 hover:ring-2 hover:ring-indigo-500 transition"
-                                 src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
+                                src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
                         @else
                             <!-- SVG que aparece cuando no hay foto de perfil -->
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-10 w-10 text-gray-500">
-                                <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clip-rule="evenodd" />
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="h-10 w-10 text-gray-500">
+                                <path fill-rule="evenodd"
+                                    d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                                    clip-rule="evenodd" />
                             </svg>
                         @endif
                     </button>
@@ -43,8 +56,7 @@
                     </x-dropdown-link>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <x-dropdown-link :href="route('logout')"
-                            onclick="event.preventDefault(); this.closest('form').submit();">
+                        <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-dropdown-link>
                     </form>
