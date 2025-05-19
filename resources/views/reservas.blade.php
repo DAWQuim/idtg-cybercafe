@@ -19,10 +19,9 @@
                 <div>
                     <label for="tipo_servicio" class="block text-gray-700 font-semibold mb-1">Tipo de Servicio</label>
                     <select id="tipo_servicio" name="tipo_servicio" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
-                        <option value="consultoria">Consultoría</option>
-                        <option value="mantenimiento">Mantenimiento</option>
-                        <option value="desarrollo">Desarrollo</option>
-                        <option value="otros">Otros</option>
+                        <option value="consultoria">Gaming</option>
+                        <option value="mantenimiento">Coworking</option>
+                        <option value="desarrollo">Cafeteria</option>
                     </select>
                 </div>
 
@@ -53,6 +52,12 @@
                 <div class="text-center">
                     <button type="submit" class="bg-primary text-white font-semibold py-2 px-6 rounded-md hover:bg-opacity-90 transition">Enviar Reserva</button>
                 </div>
+                @if (session('success'))
+                    <div class="mb-4 text-green-600 font-semibold">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
             </form>
         </div>
     </div>
