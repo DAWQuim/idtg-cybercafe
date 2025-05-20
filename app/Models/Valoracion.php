@@ -35,21 +35,4 @@ class Valoracion extends Model
     protected $casts = [
         'fecha' => 'date',
     ];
-
-    public function cliente()
-    {
-        return $this->belongsTo(Cliente::class, 'id_cliente', 'id_cliente');
-    }
-    
-    public function producto()
-    {
-        return $this->belongsTo(Producto::class, 'id_producto', 'id_producto');
-    }
-        
-    public function user()
-{
-    return $this->belongsTo(User::class, 'user_id');
-}
-
-
 }

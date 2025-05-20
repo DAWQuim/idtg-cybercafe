@@ -73,4 +73,30 @@
             <x-web-button class="text-base tracking-widest">Contacto</x-web-button>
         </a>
     </div>
+
+    <div class="bg-white flex flex-col items-center gap-8 py-12">
+    <h2 class="w-fit font-khand text-4xl text-black">Valora nuestro servicio</h2>
+
+    @if(session('success'))
+        <div class="text-green-700 font-bold">{{ session('success') }}</div>
+    @endif
+
+    <form action="{{ route('valoraciones.store') }}" method="POST" class="w-full max-w-xl px-4 flex flex-col gap-4">
+        @csrf
+        <div>
+            <label for="puntuacion" class="block font-semibold text-black mb-1">Puntuación (0 a 10)</label>
+            <input type="number" name="puntuacion" id="puntuacion" min="0" max="10" required class="w-full p-2 border border-gray-300 rounded">
+        </div>
+
+        <div>
+            <label for="comentario" class="block font-semibold text-black mb-1">Comentario (opcional)</label>
+            <textarea name="comentario" id="comentario" rows="4" class="w-full p-2 border border-gray-300 rounded"></textarea>
+        </div>
+
+        <button type="submit" class="bg-primary text-white font-bold py-2 px-4 rounded hover:bg-black transition">
+            Enviar Valoración
+        </button>
+    </form>
+</div>
+
 </x-web-layout>

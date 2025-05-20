@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ValoracionController;
 
 
 
@@ -75,5 +76,6 @@ Route::view('/coworking', 'coworking')->name('coworking');
 Route::get('/reservar', [ReservaController::class, 'create'])->name('reservas.create');
 Route::post('/reservar', [ReservaController::class, 'store'])->name('reservas.store');
 
+Route::post('/valoraciones', [ValoracionController::class, 'store'])->name('valoraciones.store');
 
 require __DIR__.'/auth.php';

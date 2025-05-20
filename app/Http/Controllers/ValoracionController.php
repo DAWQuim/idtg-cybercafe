@@ -32,23 +32,19 @@ class ValoracionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'puntuacion' => 'required|integer|min:1|max:5',
+            'puntuacion' => 'required|integer|min:0|max:10',
             'comentario' => 'nullable|string|max:1000',
-            'id_cliente' => 'required|integer|exists:clientes,id',
-            'id_producto' => 'required|integer|exists:productos,id',
         ]);
-
+    
         Valoracion::create([
             'puntuacion' => $request->puntuacion,
             'comentario' => $request->comentario,
-            'fecha' => Carbon::now()->toDateString(),
-            'id_cliente' => $request->id_cliente,
-            'id_producto' => $request->id_producto,
-            'user_id' => Auth::id(), // Solo si el usuario está autenticado
+            'fecha' => now()->toDateString(),
         ]);
-
-        return redirect()->route('valoraciones.index')->with('success', 'Valoración guardada correctamente.');
+    
+        return redirect()->back()->with('success', '¡Gracias por tu valoración!');
     }
+    
 
     /**
      * Muestra una valoración específica.
