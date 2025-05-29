@@ -4,6 +4,17 @@
 <div class="bg-[#2B2B2B] bg-opacity-100 min-h-screen flex justify-center items-center py-10 px-4">
     <div class="w-full max-w-4xl bg-black bg-opacity-70 p-10 rounded-2xl text-white shadow-xl border border-white">
         <h2 class="text-3xl font-bold text-center mb-8">Crear Cuenta</h2>
+
+        @if($errors->any())
+            <div class="m-3 p-2 border-2 border-rose-500 rounded-md">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form method="POST" action="{{ route('register') }}" id="registerForm" class="space-y-8">
             @csrf
 
@@ -11,7 +22,7 @@
             <div>
                 <label for="username" class="block text-sm font-medium mb-1">Usuario *</label>
                 <input type="text" id="username" name="username" placeholder="Usuario" required
-                       class="w-full p-3 rounded-lg bg-gray-800 text-white">
+                       class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("username") }}">
             </div>
 
             <!-- Correo y confirmación -->
@@ -19,12 +30,12 @@
                 <div>
                     <label for="email" class="block text-sm font-medium mb-1">Correo Electrónico *</label>
                     <input type="email" id="email" name="email" placeholder="Correo Electrónico" required
-                           class="w-full p-3 rounded-lg bg-gray-800 text-white">
+                           class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("email") }}">
                 </div>
                 <div>
                     <label for="email_confirmation" class="block text-sm font-medium mb-1">Confirmar Correo Electrónico *</label>
                     <input type="email" id="email_confirmation" name="email_confirmation" placeholder="Confirmar Correo Electrónico" required
-                           class="w-full p-3 rounded-lg bg-gray-800 text-white">
+                           class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("email_confirmation") }}">
                 </div>
             </div>
 
@@ -50,12 +61,12 @@
                 <div>
                     <label for="first_name" class="block text-sm font-medium mb-1">Nombre *</label>
                     <input type="text" id="first_name" name="first_name" placeholder="Nombre" required
-                           class="w-full p-3 rounded-lg bg-gray-800 text-white">
+                           class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("first_name") }}">
                 </div>
                 <div>
                     <label for="last_name" class="block text-sm font-medium mb-1">Apellidos *</label>
                     <input type="text" id="last_name" name="last_name" placeholder="Apellidos" required
-                           class="w-full p-3 rounded-lg bg-gray-800 text-white">
+                           class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("last_name") }}">
                 </div>
             </div>
 
@@ -64,12 +75,12 @@
                 <div>
                     <label for="dni" class="block text-sm font-medium mb-1">DNI/NIF *</label>
                     <input type="text" id="dni" name="dni" placeholder="DNI/NIF" required
-                           class="w-full p-3 rounded-lg bg-gray-800 text-white">
+                           class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("dni") }}">
                 </div>
                 <div>
                     <label for="birthdate" class="block text-sm font-medium mb-1">Fecha de Nacimiento *</label>
                     <input type="date" id="birthdate" name="birthdate" required
-                           class="w-full p-3 rounded-lg bg-gray-800 text-white">
+                           class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("birthdate") }}">
                 </div>
             </div>
 
@@ -78,12 +89,12 @@
                 <div>
                     <label for="postal_code" class="block text-sm font-medium mb-1">Código Postal *</label>
                     <input type="text" id="postal_code" name="postal_code" placeholder="Código Postal" required
-                           class="w-full p-3 rounded-lg bg-gray-800 text-white">
+                           class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("postal_code") }}">
                 </div>
                 <div>
                     <label for="phone" class="block text-sm font-medium mb-1">Teléfono *</label>
                     <input type="text" id="phone" name="phone" placeholder="Teléfono" required
-                           class="w-full p-3 rounded-lg bg-gray-800 text-white">
+                           class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("phone") }}">
                 </div>
             </div>
 

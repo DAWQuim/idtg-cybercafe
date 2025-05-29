@@ -29,7 +29,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-   
+
 public function store(Request $request): RedirectResponse
 {
     try {
@@ -69,10 +69,10 @@ public function store(Request $request): RedirectResponse
         Log::info('✅ Usuario autenticado. Redirigiendo...');
 
         return redirect('/');
-        
+
     } catch (\Exception $e) {
         Log::error('❌ Error al registrar usuario:', ['error' => $e->getMessage()]);
-        abort(500, 'Error interno al registrar el usuario. Consulta el log.');
+        return back()->withErrors($e->getMessage());
     }
 }
 }
