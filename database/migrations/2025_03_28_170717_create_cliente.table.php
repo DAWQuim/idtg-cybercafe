@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string("contraseña"); // Contraseña encriptada
             $table->string("dni"); // DNI del cliente
             $table->string("telefono"); // Teléfono del cliente
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 
