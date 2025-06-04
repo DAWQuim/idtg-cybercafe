@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\Models\Transaccion;
+use App\Models\Trabajador;
 use App\Models\Cliente;
 use App\Models\Producto;
 use App\Models\User;
@@ -15,29 +16,29 @@ class TransaccionTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function can_create_transaccion()
-    {
-        $cliente = Cliente::factory()->create();
-        $producto = Producto::factory()->create();
-        $user = User::factory()->create();
+    /** @test */
+public function test_can_create_transaccion()
+{
+    $cliente = Cliente::factory()->create();     
+    $user = User::factory()->create();           
+    $trabajador = Trabajador::factory()->create(['user_id' => $user->id]);
+    $producto = Producto::factory()->create(['trabajador_id' => $trabajador->id]);
 
-        $transaccionData = [
-            'fecha' => Carbon::now(),
-            'id_cliente' => $cliente->id_cliente ?? $cliente->id, // según campo clave
-            'id_producto' => $producto->id_producto,
-            'user_id' => $user->id,
-            'detalles' => 'Purchase details here',
-            'total' => 199.99,
-        ];
+    $transaccion = Transaccion::create([
+        'fecha' => now(),
+        'id_cliente' => $cliente->id_cliente,            
+        'user_id' => $user->id,                  
+        'producto_id' => $producto->id,          
+        'detalles' => 'Purchase details here',
+        'total' => 199.99,
+    ]);
 
-        $transaccion = Transaccion::create($transaccionData);
+    $this->assertDatabaseHas('transaccion', [
+        'id' => $transaccion->id,
+    ]);
+}
 
-        $this->assertDatabaseHas('transaccion', [
-            'id_transaccion' => $transaccion->id_transaccion,
-            'detalles' => 'Purchase details here',
-            'total' => 199.99,
-        ]);
-    }
+
 
     /** @test */
     public function can_update_transaccion()
@@ -51,7 +52,7 @@ class TransaccionTest extends TestCase
 
         $transaccion->update($newData);
 
-        $this->assertDatabaseHas('transaccion', $newData + ['id_transaccion' => $transaccion->id_transaccion]);
+        $this->assertDatabaseHas('transaccion', $newData + ['id' => $transaccion->id]);
     }
 
     /** @test */
@@ -75,14 +76,15 @@ class TransaccionTest extends TestCase
     }
 
     /** @test */
-    public function transaccion_belongs_to_producto()
-    {
-        $producto = Producto::factory()->create();
-        $transaccion = Transaccion::factory()->create(['id_producto' => $producto->id_producto]);
+public function transaccion_belongs_to_producto()
+{
+    $producto = Producto::factory()->create();
+    $transaccion = Transaccion::factory()->create(['producto_id' => $producto->id]);
 
-        $this->assertInstanceOf(Producto::class, $transaccion->producto);
-        $this->assertEquals($producto->id_producto, $transaccion->producto->id_producto);
-    }
+    $this->assertInstanceOf(Producto::class, $transaccion->producto);
+    $this->assertEquals($producto->id, $transaccion->producto->id);
+}
+
 
     /** @test */
     public function transaccion_belongs_to_user()

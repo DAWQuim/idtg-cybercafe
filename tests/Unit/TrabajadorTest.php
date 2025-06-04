@@ -20,7 +20,7 @@ class TrabajadorTest extends TestCase
         $trabajador = Trabajador::factory()->create();
 
         $this->assertDatabaseHas('trabajador', [
-            'id_trabajador' => $trabajador->id_trabajador,
+            'id' => $trabajador->id,
             'nombre' => $trabajador->nombre,
             'apellido' => $trabajador->apellido,
             'email' => $trabajador->email,
@@ -44,7 +44,7 @@ class TrabajadorTest extends TestCase
 
         $trabajador->update($newData);
 
-        $this->assertDatabaseHas('trabajador', $newData + ['id_trabajador' => $trabajador->id_trabajador]);
+        $this->assertDatabaseHas('trabajador', $newData + ['id' => $trabajador->id]);
     }
 
     /** @test */
@@ -54,7 +54,7 @@ class TrabajadorTest extends TestCase
 
         $trabajador->delete();
 
-        $this->assertDatabaseMissing('trabajador', ['id_trabajador' => $trabajador->id_trabajador]);
+        $this->assertDatabaseMissing('trabajador', ['id' => $trabajador->id]);
     }
 
     /** @test */
@@ -71,7 +71,7 @@ class TrabajadorTest extends TestCase
     public function trabajador_has_many_clientes()
     {
         $trabajador = Trabajador::factory()->create();
-        $clientes = Cliente::factory()->count(3)->create(['trabajador_id' => $trabajador->id_trabajador]);
+        $clientes = Cliente::factory()->count(3)->create(['trabajador_id' => $trabajador->id]);
 
         $this->assertCount(3, $trabajador->clientes);
         $this->assertInstanceOf(Cliente::class, $trabajador->clientes->first());
@@ -81,19 +81,26 @@ class TrabajadorTest extends TestCase
     public function trabajador_has_many_productos()
     {
         $trabajador = Trabajador::factory()->create();
-        $productos = Producto::factory()->count(2)->create(['trabajador_id' => $trabajador->id_trabajador]);
+        $productos = Producto::factory()->count(2)->create(['trabajador_id' => $trabajador->id]);
 
         $this->assertCount(2, $trabajador->productos);
         $this->assertInstanceOf(Producto::class, $trabajador->productos->first());
     }
 
-    /** @test */
-    public function trabajador_belongs_to_area()
-    {
-        $area = Area::factory()->create();
-        $trabajador = Trabajador::factory()->create(['area_id' => $area->id]);
+   /** @test */
+public function trabajador_belongs_to_area()
+{
+    $area = Area::factory()->create();
 
-        $this->assertInstanceOf(Area::class, $trabajador->area);
-        $this->assertEquals($area->id, $trabajador->area->id);
-    }
+    // Usa el campo correcto: id_area
+    $trabajador = Trabajador::factory()->create([
+        'area_id' => $area->id_area
+    ]);
+
+    $trabajador->refresh(); // fuerza recarga de relaciones
+
+    $this->assertInstanceOf(Area::class, $trabajador->area);
+    $this->assertEquals($area->id_area, $trabajador->area->id_area);
+}
+
 }

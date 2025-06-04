@@ -19,21 +19,17 @@ class Trabajador extends Model
         'email',
         'dni',
         'telefono',
+        'user_id',
     ];
-
-    // Si los nombres de las columnas son diferentes de la convención (por ejemplo, el campo 'id')
-    protected $primaryKey = 'id_trabajador';
-
-    // Si el campo de la clave primaria no es un entero
-    public $incrementing = true;
 
     // Si la tabla no tiene timestamps
     public $timestamps = false;
 
     public function user()
 {
-    return $this->belongsTo(User::class, 'user_id');
+    return $this->belongsTo(User::class);
 }
+
 
 public function clientes()
 {
@@ -47,8 +43,9 @@ public function productos()
 
 public function area()
 {
-    return $this->belongsTo(Area::class, 'area_id');
+    return $this->belongsTo(Area::class, 'area_id', 'id_area'); 
 }
+
 
 
 }

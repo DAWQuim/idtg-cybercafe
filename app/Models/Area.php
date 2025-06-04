@@ -22,8 +22,9 @@ class Area extends Model
     // Si los nombres de las columnas son diferentes de la convención (por ejemplo, el campo 'id')
     protected $primaryKey = 'id_area';
 
-    // Si el campo de la clave primaria no es un entero
-    public $incrementing = false;
+    
+    public $incrementing = true;
+    protected $keyType = 'int';
 
     // Si la tabla no tiene timestamps
     public $timestamps = false;

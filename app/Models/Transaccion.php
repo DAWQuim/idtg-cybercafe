@@ -10,28 +10,27 @@ class Transaccion extends Model
     use HasFactory;
 
     protected $table = 'transaccion';
-    protected $primaryKey = 'id_transaccion';
     public $timestamps = false;
 
     protected $fillable = [
         'fecha',
         'id_cliente',
-        'id_producto',
+        'producto_id', // corregido
         'user_id',
         'detalles',
         'total',
     ];
+    
+    public function producto()
+    {
+        return $this->belongsTo(Producto::class);
+    }
+    
 
     // Relación con Cliente
     public function cliente()
     {
         return $this->belongsTo(Cliente::class, 'id_cliente');
-    }
-
-    // Relación con Producto
-    public function producto()
-    {
-        return $this->belongsTo(Producto::class, 'id_producto');
     }
 
     // Relación con Usuario

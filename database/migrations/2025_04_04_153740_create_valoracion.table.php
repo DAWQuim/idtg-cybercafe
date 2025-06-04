@@ -12,11 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('valoracion', function (Blueprint $table) {
-            $table->id('id_valoracion');
-            $table->unsignedTinyInteger('puntuacion');
+            $table->id();
+            $table->foreignId('producto_id')->constrained('productos');
+            $table->foreignId('user_id')->constrained('users');
+            $table->integer('puntuacion');
             $table->date('fecha');
             $table->text('comentario')->nullable();
             $table->timestamps(false); 
+
+            //$table->foreign("producto_id")->references("id")->on("productos")->onDelete('cascade');
         });
     }
 

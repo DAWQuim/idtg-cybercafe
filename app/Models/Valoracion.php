@@ -9,11 +9,12 @@ class Valoracion extends Model
 {
     use HasFactory;
 
+    public function producto()
+    {
+        return $this->belongsTo(Producto::class);
+    }
     // Nombre de la tabla
     protected $table = 'valoracion';
-
-    // Clave primaria personalizada
-    protected $primaryKey = 'id_valoracion';
 
     // Indicar si la clave primaria es autoincremental
     public $incrementing = true;
@@ -26,10 +27,14 @@ class Valoracion extends Model
 
     // Columnas asignables en masa
     protected $fillable = [
+        'producto_id',
+        'user_id',
         'puntuacion',
         'fecha',
         'comentario',
     ];
+    
+    
 
     // Cast para fechas
     protected $casts = [

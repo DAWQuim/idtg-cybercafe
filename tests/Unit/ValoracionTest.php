@@ -4,6 +4,8 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\Models\Valoracion;
+use App\Models\Producto;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Carbon\Carbon;
 
@@ -14,20 +16,25 @@ class ValoracionTest extends TestCase
     /** @test */
     public function can_create_valoracion()
     {
-        $data = [
+        $producto = Producto::factory()->create();
+        $user = User::factory()->create();
+
+        $valoracion = Valoracion::create([
+            'producto_id' => $producto->id,
+            'user_id' => $user->id,
             'puntuacion' => 4,
             'fecha' => '2025-06-01',
             'comentario' => 'Buen servicio',
-        ];
-
-        $valoracion = Valoracion::create($data);
+        ]);
 
         $this->assertDatabaseHas('valoracion', [
-            'id_valoracion' => $valoracion->id_valoracion,
+            'producto_id' => $producto->id,
+            'user_id' => $user->id,
             'puntuacion' => 4,
             'comentario' => 'Buen servicio',
         ]);
     }
+
 
     /** @test */
     public function can_update_valoracion()
@@ -40,7 +47,7 @@ class ValoracionTest extends TestCase
         ]);
 
         $this->assertDatabaseHas('valoracion', [
-            'id_valoracion' => $valoracion->id_valoracion,
+            'id' => $valoracion->id,
             'puntuacion' => 5,
             'comentario' => 'Excelente',
         ]);

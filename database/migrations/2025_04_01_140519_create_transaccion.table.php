@@ -12,14 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create("transaccion", function (Blueprint $table) {
-            $table->id("id_transaccion"); 
+            $table->id(); 
             $table->date("fecha");
-            $table->integer("id_cliente");
+            $table->unsignedBigInteger("producto_id");
+            $table->unsignedBigInteger("id_cliente");
+            $table->unsignedBigInteger("user_id");  
             $table->string("detalles"); 
             $table->integer("total");
+        
+            $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade');
+            $table->foreign('id_cliente')->references('id_cliente')->on('cliente')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); // <-- agregar la FK
         });
+         
     }
-
 
     /**
      * Reverse the migrations.

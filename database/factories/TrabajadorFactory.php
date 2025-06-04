@@ -17,6 +17,7 @@ class TrabajadorFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'dni' => strtoupper($this->faker->bothify('########?')), // 8 números + letra
             'telefono' => $this->faker->phoneNumber(),
+            'user_id' => \App\Models\User::factory(),
         ];
     }
 }

@@ -11,12 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create("producto", function (Blueprint $table) {
-            $table->id("id_producto"); 
-            $table->string("descripcion");          
+        Schema::create("productos", function (Blueprint $table) {
+            $table->id();
+            $table->string("descripcion");
             $table->string("nombre");
-            $table->integer("precio"); 
+            $table->float("precio");
+            $table->unsignedBigInteger("area_id")->nullable();
+            $table->unsignedBigInteger("cliente_id")->nullable();
+            $table->unsignedBigInteger("trabajador_id")->nullable();
+            $table->timestamps();
+        
+            $table->foreign('area_id')->references('id_area')->on('area')->onDelete('set null');
+            $table->foreign('cliente_id')->references('id_cliente')->on('cliente')->onDelete('set null');
+            $table->foreign('trabajador_id')->references('id')->on('trabajador')->onDelete('set null');
         });
+        
+        
+        
     }
 
     /**

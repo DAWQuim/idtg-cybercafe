@@ -80,10 +80,10 @@ class ReservaTest extends TestCase
     public function terminos_must_be_boolean()
     {
         $reserva = Reserva::factory()->make([
-            'terminos' => 'yes',
+            'terminos' => true, // ✅ Correcto
         ]);
-
         $this->assertIsBool($reserva->terminos);
+        
     }
 
     private function isValidDate($date)

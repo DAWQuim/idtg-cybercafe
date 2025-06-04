@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\Models\Producto;
+use App\Models\User;
 use App\Models\Valoracion;
 use App\Models\Transaccion;
 use App\Models\Area;
@@ -16,12 +17,12 @@ class ProductoTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function can_create_producto()
+    public function test_can_create_producto()
     {
         $producto = Producto::factory()->create();
 
-        $this->assertDatabaseHas('producto', [
-            'id_producto' => $producto->id_producto,
+        $this->assertDatabaseHas('productos', [
+            'id' => $producto->id,
             'nombre' => $producto->nombre,
             'descripcion' => $producto->descripcion,
             'precio' => $producto->precio,
@@ -33,7 +34,6 @@ class ProductoTest extends TestCase
     {
         $this->expectException(\Illuminate\Database\QueryException::class);
 
-        // Attempt to create Producto without required fields to fail
         Producto::create([]);
     }
 
@@ -50,7 +50,7 @@ class ProductoTest extends TestCase
 
         $producto->update($newData);
 
-        $this->assertDatabaseHas('producto', $newData + ['id_producto' => $producto->id_producto]);
+        $this->assertDatabaseHas('productos', $newData + ['id' => $producto->id]);
     }
 
     /** @test */
@@ -60,16 +60,18 @@ class ProductoTest extends TestCase
 
         $producto->delete();
 
-        $this->assertDatabaseMissing('producto', ['id_producto' => $producto->id_producto]);
+        $this->assertDatabaseMissing('productos', ['id' => $producto->id]);
     }
 
     /** @test */
     public function producto_has_many_valoraciones()
     {
         $producto = Producto::factory()->create();
+        $user = User::factory()->create();
 
         $valoracion = Valoracion::factory()->create([
-            'id_producto' => $producto->id_producto,
+            'producto_id' => $producto->id,
+            'user_id' => $user->id,
         ]);
 
         $this->assertTrue($producto->valoraciones->contains($valoracion));
@@ -81,7 +83,7 @@ class ProductoTest extends TestCase
         $producto = Producto::factory()->create();
 
         $transaccion = Transaccion::factory()->create([
-            'id_producto' => $producto->id_producto,
+            'producto_id' => $producto->id,
         ]);
 
         $this->assertTrue($producto->transacciones->contains($transaccion));
@@ -117,9 +119,9 @@ class ProductoTest extends TestCase
         $trabajador = Trabajador::factory()->create();
 
         $producto = Producto::factory()->create([
-            'trabajador_id' => $trabajador->id_trabajador,
+            'trabajador_id' => $trabajador->id,
         ]);
 
-        $this->assertEquals($trabajador->id_trabajador, $producto->trabajador->id_trabajador);
+        $this->assertEquals($trabajador->id, $producto->trabajador->id);
     }
 }
