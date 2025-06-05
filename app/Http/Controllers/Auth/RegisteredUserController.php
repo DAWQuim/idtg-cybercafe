@@ -30,9 +30,8 @@ class RegisteredUserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
 
-public function store(Request $request): RedirectResponse
-{
-    try {
+    public function store(Request $request): RedirectResponse
+    {
         Log::info('⏳ Validando datos del formulario de registro...');
 
         $validated = $request->validate([
@@ -61,6 +60,8 @@ public function store(Request $request): RedirectResponse
             'password' => Hash::make($validated['password']),
         ]);
 
+        $user->admin = false;
+
         Log::info('🎉 Usuario creado correctamente:', ['user_id' => $user->id]);
 
         event(new Registered($user));
@@ -69,10 +70,5 @@ public function store(Request $request): RedirectResponse
         Log::info('✅ Usuario autenticado. Redirigiendo...');
 
         return redirect('/');
-
-    } catch (\Exception $e) {
-        Log::error('❌ Error al registrar usuario:', ['error' => $e->getMessage()]);
-        return back()->withErrors($e->getMessage());
     }
-}
 }

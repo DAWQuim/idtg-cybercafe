@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reserva;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReservaController extends Controller
 {
@@ -15,8 +16,6 @@ class ReservaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'usuario' => 'required|string|max:255',
-            'telefono' => 'required|string|max:20',
             'tipo_servicio' => 'required|string',
             'fecha_reserva' => 'required|date',
             'duracion' => 'required|integer|min:1',
@@ -24,11 +23,22 @@ class ReservaController extends Controller
             'terminos' => 'accepted',
         ]);
 
-     
-        unset($validated['terminos']);
 
-        Reserva::create($validated);
+//        unset($validated['terminos']);
+
+        $reserva = new Reserva();
+        $reserva->usuario = Auth::user()->username;
+        $reserva->telefono = Auth::user()->phone;
+        $reserva->fill($validated);
+        $reserva->save();
 
         return redirect()->route('reservas.create')->with('success', 'Reserva realizada con éxito.');
+    }
+
+    public function destroy(string $id)
+    {
+        Reserva::destroy($id);
+
+        return back();
     }
 }
