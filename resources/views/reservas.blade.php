@@ -6,22 +6,19 @@
             <form action="{{ route('reservas.store') }}" method="POST" class="space-y-6">
                 @csrf
 
-                <div>
-                    <label for="usuario" class="block text-gray-700 font-semibold mb-1">Usuario</label>
-                    <input type="text" id="usuario" name="usuario" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
-                </div>
-
+{{--
                 <div>
                     <label for="telefono" class="block text-gray-700 font-semibold mb-1">Teléfono</label>
                     <input type="text" id="telefono" name="telefono" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
                 </div>
+--}}
 
                 <div>
                     <label for="tipo_servicio" class="block text-gray-700 font-semibold mb-1">Tipo de Servicio</label>
                     <select id="tipo_servicio" name="tipo_servicio" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
-                        <option value="consultoria">Gaming</option>
-                        <option value="mantenimiento">Coworking</option>
-                        <option value="desarrollo">Cafeteria</option>
+                        <option value="gaming">Gaming</option>
+                        <option value="coworking">Coworking</option>
+                        <option value="cafeteria">Cafeteria</option>
                     </select>
                 </div>
 
@@ -59,6 +56,10 @@
                 @endif
 
             </form>
+
+           @if(session()->has("message"))
+               {{ session()->get("message") }}
+           @endif
         </div>
     </div>
 </x-web-layout>

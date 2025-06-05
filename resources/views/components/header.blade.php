@@ -1,5 +1,5 @@
 <header
-    class="w-full h-[8rem] py-[.75rem] px-[8rem] flex flex-row justify-center items-center bg-primary font-khand font-normal"
+    class="w-full h-[8rem] py-[.75rem] px-[8rem] gap-8 flex flex-row justify-center items-center bg-primary font-khand font-normal"
 >
     <!-- Logo-Enlace home -->
     <a href="{{ route('home') }}" class="h-full aspect-square">
@@ -33,11 +33,11 @@
 
         <!-- Dropdown de usuario -->
         @auth
-            <p class="text-xl">{{ auth()->user()->username }}</p>
+            <a class="text-xl select-none">{{ auth()->user()->username }}</a>
             <x-dropdown align="right" width="48">
                 <x-slot name="trigger">
                     <!-- Eliminar el enlace de "a" para que no te lleve al perfil -->
-                    <button class="flex items-center focus:outline-none">
+                    <button id="button" class="flex items-center focus:outline-none">
                         <!-- Aquí está el cambio: -->
                         @if (Auth::user()->profile_photo_url)
                             <img class="h-10 w-10 rounded-full object-cover border-2 border-gray-300 hover:ring-2 hover:ring-indigo-500 transition"
@@ -61,6 +61,13 @@
                     <x-dropdown-link :href="route('profile.show')">
                         {{ __('Profile') }}
                     </x-dropdown-link>
+
+                    @if (Auth::user()->admin)
+                        <x-dropdown-link :href="route('reservas.show')">
+                            Editar Reservas
+                        </x-dropdown-link>
+                    @endauth
+
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <x-dropdown-link :href="route('logout')"
@@ -73,7 +80,9 @@
             </x-dropdown>
         @else
             <!-- Si no está autenticado, mostrar el enlace de login -->
-            <a href="{{ route('login') }}">
+
+            <a class="flex flex-row items-center gap-4 text-lg" href="{{ route('login') }}">
+                Iniciar sesión
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-9">
                     <path fill-rule="evenodd"
                           d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"

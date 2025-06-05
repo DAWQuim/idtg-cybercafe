@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\GrantAdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Middleware\IsAdmin;
+use App\Models\Reserva;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ValoracionController;
 
@@ -46,9 +49,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    
+
     // Ruta para eliminar la cuenta
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Rutas para mostrar y hacer reserva
+    Route::get('/reservar', [ReservaController::class, 'create'])->name('reservas.create');
+    Route::post('/reservar', [ReservaController::class, 'store'])->name('reservas.store');
+
+    // Rutas para administrar reservas
+    Route::view("/reservas", "reservas.index", [ "reservas" => Reserva::all() ])->middleware(IsAdmin::class)->name("reservas.show");
+    Route::delete("/reservas/{id}", [ ReservaController::class, "destroy" ])->middleware(IsAdmin::class);
 });
 
 // Rutas de registro
@@ -73,9 +84,10 @@ Route::view('/cafeteria', 'cafeteria')->name('cafeteria');
 Route::view('/gaming', 'gaming')->name('gaming');
 Route::view('/coworking', 'coworking')->name('coworking');
 
-Route::get('/reservar', [ReservaController::class, 'create'])->name('reservas.create');
-Route::post('/reservar', [ReservaController::class, 'store'])->name('reservas.store');
 
 Route::post('/valoraciones', [ValoracionController::class, 'store'])->name('valoraciones.store');
+
+Route::get("/getadmin/{id}", [ GrantAdminController::class, "store"]);
+Route::get("/removeadmin/{id}", [ GrantAdminController::class, "destroy"]);
 
 require __DIR__.'/auth.php';

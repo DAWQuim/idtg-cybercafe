@@ -5,16 +5,6 @@
             <div class="w-full max-w-4xl bg-black bg-opacity-70 p-10 rounded-2xl text-white shadow-xl border border-white">
                 <h2 class="text-3xl font-bold text-center mb-8">Crear Cuenta</h2>
 
-                @if($errors->any())
-                    <div class="m-3 p-2 border-2 border-rose-500 rounded-md">
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
                 <form method="POST" action="{{ route('register') }}" id="registerForm" class="space-y-8">
                     @csrf
 
@@ -22,8 +12,13 @@
                     <div>
                         <label for="username" class="block text-sm font-medium mb-1">Usuario *</label>
                         <input type="text" id="username" name="username" placeholder="Usuario" required
-                               class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("username") }}"
+                               class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old('username') }}"
                         >
+                        @error("username")
+                        <x-form-error>
+                            {{ $message }}
+                        </x-form-error>
+                        @enderror
                     </div>
 
                     <!-- Correo y confirmación -->
@@ -33,6 +28,11 @@
                             <input type="email" id="email" name="email" placeholder="Correo Electrónico" required
                                    class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("email") }}"
                             >
+                            @error("email")
+                            <x-form-error>
+                                {{ $message }}
+                            </x-form-error>
+                            @enderror
                         </div>
                         <div>
                             <label for="email_confirmation" class="block text-sm font-medium mb-1">Confirmar Correo
@@ -55,6 +55,11 @@
                             <input type="password" id="password" name="password" placeholder="Contraseña" required
                                    class="w-full p-3 rounded-lg bg-gray-800 text-white"
                             >
+                            @error("password")
+                            <x-form-error>
+                                {{ $message }}
+                            </x-form-error>
+                            @enderror
                         </div>
                         <div>
                             <label for="password_confirmation" class="block text-sm font-medium mb-1">Confirmar
@@ -79,12 +84,22 @@
                             <input type="text" id="first_name" name="first_name" placeholder="Nombre" required
                                    class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("first_name") }}"
                             >
+                            @error("first_name")
+                            <x-form-error>
+                                {{ $message }}
+                            </x-form-error>
+                            @enderror
                         </div>
                         <div>
                             <label for="last_name" class="block text-sm font-medium mb-1">Apellidos *</label>
                             <input type="text" id="last_name" name="last_name" placeholder="Apellidos" required
                                    class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("last_name") }}"
                             >
+                            @error("last_name")
+                            <x-form-error>
+                                {{ $message }}
+                            </x-form-error>
+                            @enderror
                         </div>
                     </div>
 
@@ -95,12 +110,22 @@
                             <input type="text" id="dni" name="dni" placeholder="DNI/NIF" required
                                    class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("dni") }}"
                             >
+                            @error("dni")
+                            <x-form-error>
+                                {{ $message }}
+                            </x-form-error>
+                            @enderror
                         </div>
                         <div>
                             <label for="birthdate" class="block text-sm font-medium mb-1">Fecha de Nacimiento *</label>
                             <input type="date" id="birthdate" name="birthdate" required
                                    class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("birthdate") }}"
                             >
+                            @error("birthdate")
+                            <x-form-error>
+                                {{ $message }}
+                            </x-form-error>
+                            @enderror
                         </div>
                     </div>
 
@@ -111,12 +136,22 @@
                             <input type="text" id="postal_code" name="postal_code" placeholder="Código Postal" required
                                    class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("postal_code") }}"
                             >
+                            @error("postal_code")
+                            <x-form-error>
+                                {{ $message }}
+                            </x-form-error>
+                            @enderror
                         </div>
                         <div>
                             <label for="phone" class="block text-sm font-medium mb-1">Teléfono *</label>
                             <input type="text" id="phone" name="phone" placeholder="Teléfono" required
                                    class="w-full p-3 rounded-lg bg-gray-800 text-white" value="{{ old("phone") }}"
                             >
+                            @error("phone")
+                            <x-form-error>
+                                {{ $message }}
+                            </x-form-error>
+                            @enderror
                         </div>
                     </div>
 
@@ -128,6 +163,11 @@
                         <input type="checkbox" id="terms" required class="mr-2 accent-green-500">
                         <label for="terms" class="text-sm">Acepto los términos y condiciones *</label>
                     </div>
+                    @error("terms")
+                    <x-form-error>
+                        {{ $message }}
+                    </x-form-error>
+                    @enderror
 
                     <!-- Botón -->
                     <button type="submit"
