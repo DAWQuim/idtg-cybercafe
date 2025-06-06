@@ -1,0 +1,96 @@
+📄 Documentación del Proyecto: IDTG Cybercafé
+🧾 Descripción General
+
+IDTG Cybercafé es una aplicación web construida con Laravel, diseñada para gestionar un cibercafé. Ofrece funcionalidades tanto para usuarios clientes como para administradores del sistema.
+⚙️ Funcionalidades Principales
+
+Reservas de servicios
+
+      Los clientes pueden reservar servicios del cibercafé indicando:
+
+            Tipo de servicio
+
+            Fecha de reserva
+
+            Duración (en minutos,horas,etc...)
+
+            Método de pago
+
+            Aceptación de términos
+
+      La información del usuario autenticado se usa automáticamente (nombre de usuario y teléfono).
+
+Transacciones
+
+      Los administradores pueden registrar y visualizar transacciones realizadas por los clientes, que incluyen:
+
+            ID del cliente
+
+            Detalles de la transacción
+
+            Monto total
+
+            Fecha (automática)
+
+Valoraciones
+
+        Los usuarios pueden dejar una valoración con:
+
+            Puntuación del 0 al 10
+
+            Comentario (opcional)
+
+            Fecha automática
+
+Gestión de roles
+
+      Los administradores pueden otorgar o revocar privilegios de administrador a otros usuarios mediante GrantAdminController.
+
+👥 Roles de Usuario
+
+🔐 Administrador
+
+Puede:
+
+    Ver y gestionar transacciones
+
+    Ver y editar valoraciones
+
+    Otorgar o quitar permisos de administrador
+
+    Ver y cancelar reservas
+
+👤 Cliente
+
+Puede:
+
+    Hacer reservas de servicios
+
+    Dejar valoraciones
+
+    Consultar sus propias transacciones
+
+👨‍💻 Usuarios de Ejemplo
+🛡️ Administradores
+
+    Nombre: admin1
+    Email: admin1@idtg.com
+    Contraseña: Admin1234
+    Rol: Administrador
+
+    Nombre: admin2
+    Email: admin2@idtg.com
+    Contraseña: Admin5678
+    Rol: Administrador
+
+🙍 Clientes
+
+    Nombre: cliente1
+    Email: cliente1@idtg.com
+    Contraseña: Cliente123
+    Rol: Usuario
+
+    Nombre: cliente2
+    Email: cliente2@idtg.com
+    Contraseña: Cliente456
+    Rol: Usuario
