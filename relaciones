@@ -1,36 +1,93 @@
-- Valoracion pertenece a Cliente y a un producto en concreto.
-- Transacción pertenece a Cliente, producto y con un Usuario concreto.
+📘 Modelo de Relaciones – Sistema de Reservas
+👤 Usuario (User)
+Entidad base que puede especializarse como:
 
-Cliente ↔ User
-Cada cliente es una especialización de un usuario (User).
-➤ Relación: Un cliente pertenece a un usuario.
+Cliente
 
-Trabajador ↔ User
-Cada trabajador también es una especialización de un usuario.
-➤ Relación: Un trabajador pertenece a un usuario.
+Trabajador
 
-Producto ↔ Área
-Un producto representa una reserva de un tipo específico de área (Coworking o Gaming).
-➤ Relación: Un producto pertenece a un área.
+🧑‍💼 Cliente ↔ User
+Cada Cliente es una especialización de User.
 
-Cliente ↔ Producto
+🔗 Relación: Un cliente pertenece a un usuario.
+
+🛠️ Trabajador ↔ User
+Cada Trabajador también es una especialización de User.
+
+🔗 Relación: Un trabajador pertenece a un usuario.
+
+🏢 Producto ↔ Área
+Un Producto representa la reserva de un tipo específico de área:
+
+Coworking
+
+Gaming
+
+Cafetería
+
+🔗 Relación: Un producto pertenece a un área.
+
+👥 Cliente ↔ Producto
 Un cliente puede reservar múltiples productos.
-➤ Relación: Un cliente tiene muchos productos.
-➤ Cada producto pertenece a un cliente.
 
-Cliente ↔ Trabajador
-Un cliente puede ser atendido o gestionado por un trabajador.
-➤ Relación: Un cliente puede pertenecer a un trabajador.
+🔗 Relaciones:
 
-Valoración ↔ User
+Un cliente tiene muchos productos.
+
+Cada producto pertenece a un cliente.
+
+🤝 Cliente ↔ Trabajador
+Un cliente puede ser gestionado por un trabajador.
+
+🔗 Relación: Un cliente puede pertenecer a un trabajador.
+
+⭐ Valoración (Review)
+Una Valoración pertenece a:
+
+Un Cliente
+
+Un Producto
+
+Un Usuario
+
 Cualquier usuario puede dejar valoraciones del servicio.
-➤ Relación: Una valoración pertenece a un usuario.
 
-Producto ↔ Trabajador
-Un trabajador puede estar asignado a productos específicos para gestionar las reservas.
-➤ Relación: Un producto puede pertenecer a un trabajador.
+🔗 Relaciones:
 
-Área ↔ Trabajador
-Una o varias áreas pueden estar supervisadas por uno o más trabajadores.
-➤ Relación: Un área puede tener muchos trabajadores.
-➤ Un trabajador puede pertenecer a un área.
+Una valoración pertenece a un usuario.
+
+Una valoración pertenece a un cliente.
+
+Una valoración pertenece a un producto.
+
+💸 Transacción
+Una Transacción se asocia a:
+
+Un Cliente
+
+Un Producto
+
+Un Usuario
+
+🔗 Relaciones:
+
+Una transacción pertenece a un cliente.
+
+Una transacción pertenece a un producto.
+
+Una transacción pertenece a un usuario.
+
+👨‍🔧 Producto ↔ Trabajador
+Un trabajador puede estar asignado a productos específicos para gestionar reservas.
+
+🔗 Relación: Un producto puede pertenecer a un trabajador.
+
+🗂️ Área ↔ Trabajador
+Una área puede ser supervisada por uno o más trabajadores.
+
+🔗 Relaciones:
+
+Un área puede tener muchos trabajadores.
+
+Un trabajador puede pertenecer a un área.
+
