@@ -55,10 +55,12 @@ Route::middleware(['auth'])->group(function () {
 
     // Rutas para mostrar y hacer reserva
     Route::get('/reservar', [ReservaController::class, 'create'])->name('reservas.create');
-    Route::post('/reservar', [ReservaController::class, 'store'])->name('reservas.store');
+   Route::post('/reservar', [ReservaController::class, 'store'])->name('web.reservas.store');
+
 
     // Rutas para administrar reservas
-    Route::view("/reservas", "reservas.index", [ "reservas" => Reserva::all() ])->middleware(IsAdmin::class)->name("reservas.show");
+  	Route::get('/reservas', [ReservaController::class, 'index'])->middleware(IsAdmin::class)->name('admin.reservas.index');
+
     Route::delete("/reservas/{id}", [ ReservaController::class, "destroy" ])->middleware(IsAdmin::class);
 });
 

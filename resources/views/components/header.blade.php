@@ -63,7 +63,7 @@
                     </x-dropdown-link>
 
                     @if (Auth::user()->admin)
-                        <x-dropdown-link :href="route('reservas.show')">
+                        <x-dropdown-link :href="route('reservas.index')">
                             Editar Reservas
                         </x-dropdown-link>
                     @endauth

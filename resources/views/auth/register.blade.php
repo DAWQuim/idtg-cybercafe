@@ -159,14 +159,12 @@
                     <hr class="border-white opacity-50">
 
                     <!-- Aceptar términos -->
-                    <div class="flex items-center">
-                        <input type="checkbox" id="terms" required class="mr-2 accent-green-500">
-                        <label for="terms" class="text-sm">Acepto los términos y condiciones *</label>
+                  <div class="flex items-center">
+                        <input type="checkbox" id="terminos" name="terminos" value="1" required class="mr-2 accent-green-500">
+                        <label for="terminos" class="text-sm">Acepto los términos y condiciones *</label>
                     </div>
-                    @error("terms")
-                    <x-form-error>
-                        {{ $message }}
-                    </x-form-error>
+                    @error('terminos')
+                        <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
                     @enderror
 
                     <!-- Botón -->

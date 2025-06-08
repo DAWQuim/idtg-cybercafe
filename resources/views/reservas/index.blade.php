@@ -1,7 +1,7 @@
 <x-web-layout>
     <div class="h-[calc(100svh-8rem)] px-40">
         <div class="h-full w-full bg-gray-200 p-8">
-                @if ($reservas->count(0))
+                @if ($reservas->isNotEmpty())
                 <ul>
                     @foreach($reservas as $reserva)
                         <li class="relative">

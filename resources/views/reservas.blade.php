@@ -3,7 +3,7 @@
         <div class="w-full max-w-3xl bg-white rounded-2xl shadow-lg p-8">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Haz tu Reserva</h2>
 
-            <form action="{{ route('reservas.store') }}" method="POST" class="space-y-6">
+            <form action="{{ route('web.reservas.store') }}" method="POST" class="space-y-6">
                 @csrf
 
 {{--
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="flex items-start">
-                    <input type="checkbox" id="terminos" name="terminos" class="mt-1 mr-2" required>
+                   <input type="checkbox" id="terminos" name="terminos" value="1" class="mt-1 mr-2" required>
                     <label for="terminos" class="text-sm text-gray-600">He leído y acepto los <a href="#" class="text-primary underline">términos y condiciones</a>.</label>
                 </div>
 

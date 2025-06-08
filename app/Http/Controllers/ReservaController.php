@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class ReservaController extends Controller
 {
+	public function index()
+{
+    $reservas = Reserva::all();  // Traemos todas las reservas
+    return view('reservas.index', compact('reservas'));
+}
+
+	
     public function create()
     {
         return view('reservas');
@@ -16,15 +23,14 @@ class ReservaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'tipo_servicio' => 'required|string',
-            'fecha_reserva' => 'required|date',
-            'duracion' => 'required|integer|min:1',
-            'metodo_pago' => 'required|string',
-            'terminos' => 'accepted',
-        ]);
+        'tipo_servicio' => 'required|string',
+        'fecha_reserva' => 'required|date',
+        'duracion' => 'required|integer|min:1',
+        'metodo_pago' => 'required|string',
+        'terminos' => 'accepted',
+    ]);
 
-
-//        unset($validated['terminos']);
+        unset($validated['terminos']);
 
         $reserva = new Reserva();
         $reserva->usuario = Auth::user()->username;
